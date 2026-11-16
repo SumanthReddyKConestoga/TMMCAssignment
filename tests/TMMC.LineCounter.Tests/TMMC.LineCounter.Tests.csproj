@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AB3585D-978E-4659-B90C-22A089F891EA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TMMC.LineCounter.Tests</RootNamespace>
+    <AssemblyName>TMMC.LineCounter.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <Optimize Condition=" '$(Configuration)' == 'Release' ">true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Compile Include="Program.cs" />
+    <None Include="..\..\src\TMMC.LineCounter\App.config">
+      <Link>App.config</Link>
+    </None>
+    <ProjectReference Include="..\..\src\TMMC.LineCounter\TMMC.LineCounter.csproj">
+      <Project>{A06F857F-EE84-42BB-91E4-ADE425D324E7}</Project>
+      <Name>TMMC.LineCounter</Name>
+    </ProjectReference>
+    <Content Include="..\..\test-images\*.jpg">
+      <Link>test-images\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
